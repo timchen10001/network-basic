@@ -10,7 +10,7 @@ using namespace std::chrono_literals;
 
 const char* PAUSE = "read -n 1 -s -p \"Press any key to continue...\"";
 
-std::vector<char> vBuffer(20 * 1024);
+std::vector<char> vBuffer(1 * 1024);
 
 void GrabSomeData(asio::ip::tcp::socket& socket);
 
@@ -23,7 +23,7 @@ int main(void) {
     // Create a "context" - essentially the platform specific interface
     asio::io_context context;
 
-    // Give some fake tasks to asio to the context doesnt finish
+    // Give some fake tasks to asio, so the context doesnt finish
     asio::io_context::work idleWork(context);
 
     // Start thread
